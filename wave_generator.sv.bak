@@ -1,0 +1,15 @@
+module wave_generator #(parameter f=440)(input logic clk,
+													 output w);
+							
+		logic [10:] n1;
+		
+		always_ff @ (posedge clk)
+			n1 <= n1 + 1
+			if (n1 == f)
+				begin 
+				n1 <= 0
+				w <= ~ w
+				end
+				
+endmodule
+													 

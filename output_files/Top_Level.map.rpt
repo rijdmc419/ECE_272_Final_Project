@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Top_Level
-Thu Nov 10 17:19:43 2022
+Sun Nov 20 20:42:02 2022
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -13,16 +13,16 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
- 10. General Register Statistics
- 11. Parameter Settings for User Entity Instance: counter:inst2
- 12. Parameter Settings for User Entity Instance: comparator:inst3
- 13. Parameter Settings for User Entity Instance: counter:inst1
- 14. Parameter Settings for User Entity Instance: comparator:inst1111
- 15. Post-Synthesis Netlist Statistics for Top Partition
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for User Entity Instance: decoder:inst6
+ 11. Parameter Settings for User Entity Instance: SIPO:inst
+ 12. Parameter Settings for User Entity Instance: counter:inst1
+ 13. Parameter Settings for User Entity Instance: comparator:inst1111
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+ 17. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -48,16 +48,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Nov 10 17:19:43 2022       ;
+; Analysis & Synthesis Status        ; Successful - Sun Nov 20 20:42:02 2022       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; Top_Level                                   ;
 ; Top-level Entity Name              ; Top_Level                                   ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 28                                          ;
-;     Total combinational functions  ; 21                                          ;
-;     Dedicated logic registers      ; 18                                          ;
-; Total registers                    ; 18                                          ;
-; Total pins                         ; 11                                          ;
+; Total logic elements               ; 37                                          ;
+;     Total combinational functions  ; 29                                          ;
+;     Dedicated logic registers      ; 20                                          ;
+; Total registers                    ; 20                                          ;
+; Total pins                         ; 6                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -158,28 +158,29 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 6           ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 6           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                   ;
-+----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                         ; Library ;
-+----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------+---------+
-; comparator.sv                    ; yes             ; User SystemVerilog HDL File        ; C:/Users/rdorf/Documents/ECE_272_Final_Project/comparator.sv         ;         ;
-; Top_Level.bdf                    ; yes             ; User Block Diagram/Schematic File  ; C:/Users/rdorf/Documents/ECE_272_Final_Project/Top_Level.bdf         ;         ;
-; counter.sv                       ; yes             ; User SystemVerilog HDL File        ; C:/Users/rdorf/Documents/ECE_272_Final_Project/counter.sv            ;         ;
-; data_concatenation.sv            ; yes             ; User SystemVerilog HDL File        ; C:/Users/rdorf/Documents/ECE_272_Final_Project/data_concatenation.sv ;         ;
-+----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                         ;
++----------------------------------+-----------------+------------------------------------+------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                               ; Library ;
++----------------------------------+-----------------+------------------------------------+------------------------------------------------------------+---------+
+; SIPO.sv                          ; yes             ; User SystemVerilog HDL File        ; C:/intelFPGA_lite/18.0/ECE_272_Final_Project/SIPO.sv       ;         ;
+; comparator.sv                    ; yes             ; User SystemVerilog HDL File        ; C:/intelFPGA_lite/18.0/ECE_272_Final_Project/comparator.sv ;         ;
+; Top_Level.bdf                    ; yes             ; User Block Diagram/Schematic File  ; C:/intelFPGA_lite/18.0/ECE_272_Final_Project/Top_Level.bdf ;         ;
+; counter.sv                       ; yes             ; User SystemVerilog HDL File        ; C:/intelFPGA_lite/18.0/ECE_272_Final_Project/counter.sv    ;         ;
+; decoder.sv                       ; yes             ; User SystemVerilog HDL File        ; C:/intelFPGA_lite/18.0/ECE_272_Final_Project/decoder.sv    ;         ;
++----------------------------------+-----------------+------------------------------------+------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------+
@@ -187,65 +188,43 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 28          ;
+; Estimated Total logic elements              ; 37          ;
 ;                                             ;             ;
-; Total combinational functions               ; 21          ;
+; Total combinational functions               ; 29          ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 18          ;
-;     -- 3 input functions                    ; 1           ;
-;     -- <=2 input functions                  ; 2           ;
+;     -- 4 input functions                    ; 17          ;
+;     -- 3 input functions                    ; 7           ;
+;     -- <=2 input functions                  ; 5           ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 21          ;
+;     -- normal mode                          ; 29          ;
 ;     -- arithmetic mode                      ; 0           ;
 ;                                             ;             ;
-; Total registers                             ; 18          ;
-;     -- Dedicated logic registers            ; 18          ;
+; Total registers                             ; 20          ;
+;     -- Dedicated logic registers            ; 20          ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
-; I/O pins                                    ; 11          ;
+; I/O pins                                    ; 6           ;
 ;                                             ;             ;
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; Clock~input ;
-; Maximum fan-out                             ; 18          ;
-; Total fan-out                               ; 143         ;
-; Average fan-out                             ; 2.34        ;
+; Maximum fan-out                             ; 21          ;
+; Total fan-out                               ; 155         ;
+; Average fan-out                             ; 2.54        ;
 +---------------------------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                        ;
-+------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------+--------------------+--------------+
-; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                ; Entity Name        ; Library Name ;
-+------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------+--------------------+--------------+
-; |Top_Level                   ; 21 (0)              ; 18 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 11   ; 0            ; 0          ; |Top_Level                         ; Top_Level          ; work         ;
-;    |comparator:inst3|        ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top_Level|comparator:inst3        ; comparator         ; work         ;
-;    |counter:inst2|           ; 4 (4)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top_Level|counter:inst2           ; counter            ; work         ;
-;    |data_concatenation:inst| ; 16 (16)             ; 14 (14)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top_Level|data_concatenation:inst ; data_concatenation ; work         ;
-+------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------+--------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                     ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name      ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------+-------------+--------------+
+; |Top_Level                 ; 29 (0)              ; 20 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 6    ; 0            ; 0          ; |Top_Level               ; Top_Level   ; work         ;
+;    |SIPO:inst|             ; 26 (26)             ; 20 (20)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top_Level|SIPO:inst     ; SIPO        ; work         ;
+;    |decoder:inst6|         ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top_Level|decoder:inst6 ; decoder     ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; data_concatenation:inst|a[0]          ; Stuck at GND due to stuck port data_in ;
-; data_concatenation:inst|y[0]          ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 2 ;                                        ;
-+---------------------------------------+----------------------------------------+
-
-
-+---------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                       ;
-+------------------------------+---------------------------+----------------------------------------+
-; Register name                ; Reason for Removal        ; Registers Removed due to This Register ;
-+------------------------------+---------------------------+----------------------------------------+
-; data_concatenation:inst|a[0] ; Stuck at GND              ; data_concatenation:inst|y[0]           ;
-;                              ; due to stuck port data_in ;                                        ;
-+------------------------------+---------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -253,34 +232,42 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 18    ;
+; Total registers                              ; 20    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 4     ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 7     ;
+; Number of registers using Clock Enable       ; 8     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Top_Level|SIPO:inst|out[8] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+
+
 +------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: counter:inst2 ;
+; Parameter Settings for User Entity Instance: decoder:inst6 ;
 +----------------+-------+-----------------------------------+
 ; Parameter Name ; Value ; Type                              ;
 +----------------+-------+-----------------------------------+
-; N              ; 4     ; Signed Integer                    ;
+; N              ; 10    ; Signed Integer                    ;
 +----------------+-------+-----------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: comparator:inst3 ;
-+----------------+-------+--------------------------------------+
-; Parameter Name ; Value ; Type                                 ;
-+----------------+-------+--------------------------------------+
-; N              ; 4     ; Signed Integer                       ;
-; b              ; 11    ; Signed Integer                       ;
-+----------------+-------+--------------------------------------+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SIPO:inst ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; N              ; 10    ; Signed Integer                ;
++----------------+-------+-------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -310,21 +297,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 11                          ;
-; cycloneiii_ff         ; 18                          ;
-;     CLR               ; 4                           ;
-;     ENA               ; 7                           ;
-;     plain             ; 7                           ;
-; cycloneiii_lcell_comb ; 22                          ;
-;     normal            ; 22                          ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 1                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 18                          ;
+; boundary_port         ; 6                           ;
+; cycloneiii_ff         ; 20                          ;
+;     ENA               ; 8                           ;
+;     plain             ; 12                          ;
+; cycloneiii_lcell_comb ; 29                          ;
+;     normal            ; 29                          ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 7                           ;
+;         4 data inputs ; 17                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.24                        ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 2.23                        ;
 +-----------------------+-----------------------------+
 
 
@@ -343,41 +327,55 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Thu Nov 10 17:19:28 2022
+    Info: Processing started: Sun Nov 20 20:41:41 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Top_Level -c Top_Level
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file sipo.sv
+    Info (12023): Found entity 1: SIPO File: C:/intelFPGA_lite/18.0/ECE_272_Final_Project/SIPO.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file wave_generator.sv
+    Info (12023): Found entity 1: wave_generator File: C:/intelFPGA_lite/18.0/ECE_272_Final_Project/wave_generator.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file comparator.sv
-    Info (12023): Found entity 1: comparator File: C:/Users/rdorf/Documents/ECE_272_Final_Project/comparator.sv Line: 1
+    Info (12023): Found entity 1: comparator File: C:/intelFPGA_lite/18.0/ECE_272_Final_Project/comparator.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file top_level.bdf
     Info (12023): Found entity 1: Top_Level
 Info (12021): Found 1 design units, including 1 entities, in source file counter.sv
-    Info (12023): Found entity 1: counter File: C:/Users/rdorf/Documents/ECE_272_Final_Project/counter.sv Line: 1
+    Info (12023): Found entity 1: counter File: C:/intelFPGA_lite/18.0/ECE_272_Final_Project/counter.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file data_concatenation.sv
-    Info (12023): Found entity 1: data_concatenation File: C:/Users/rdorf/Documents/ECE_272_Final_Project/data_concatenation.sv Line: 1
+    Info (12023): Found entity 1: data_concatenation File: C:/intelFPGA_lite/18.0/ECE_272_Final_Project/data_concatenation.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file decoder.sv
+    Info (12023): Found entity 1: decoder File: C:/intelFPGA_lite/18.0/ECE_272_Final_Project/decoder.sv Line: 1
 Info (12127): Elaborating entity "Top_Level" for the top level hierarchy
-Info (12128): Elaborating entity "data_concatenation" for hierarchy "data_concatenation:inst"
-Info (12128): Elaborating entity "counter" for hierarchy "counter:inst2"
-Warning (10230): Verilog HDL assignment warning at counter.sv(8): truncated value with size 32 to match size of target (4) File: C:/Users/rdorf/Documents/ECE_272_Final_Project/counter.sv Line: 8
-Info (12128): Elaborating entity "comparator" for hierarchy "comparator:inst3"
+Info (12128): Elaborating entity "decoder" for hierarchy "decoder:inst6"
+Warning (10230): Verilog HDL assignment warning at decoder.sv(9): truncated value with size 2 to match size of target (1) File: C:/intelFPGA_lite/18.0/ECE_272_Final_Project/decoder.sv Line: 9
+Warning (10230): Verilog HDL assignment warning at decoder.sv(10): truncated value with size 2 to match size of target (1) File: C:/intelFPGA_lite/18.0/ECE_272_Final_Project/decoder.sv Line: 10
+Warning (10230): Verilog HDL assignment warning at decoder.sv(11): truncated value with size 2 to match size of target (1) File: C:/intelFPGA_lite/18.0/ECE_272_Final_Project/decoder.sv Line: 11
+Warning (10230): Verilog HDL assignment warning at decoder.sv(12): truncated value with size 2 to match size of target (1) File: C:/intelFPGA_lite/18.0/ECE_272_Final_Project/decoder.sv Line: 12
+Info (12128): Elaborating entity "SIPO" for hierarchy "SIPO:inst"
+Warning (10230): Verilog HDL assignment warning at SIPO.sv(22): truncated value with size 32 to match size of target (4) File: C:/intelFPGA_lite/18.0/ECE_272_Final_Project/SIPO.sv Line: 22
 Info (12128): Elaborating entity "counter" for hierarchy "counter:inst1"
-Warning (10230): Verilog HDL assignment warning at counter.sv(8): truncated value with size 32 to match size of target (26) File: C:/Users/rdorf/Documents/ECE_272_Final_Project/counter.sv Line: 8
+Warning (10230): Verilog HDL assignment warning at counter.sv(8): truncated value with size 32 to match size of target (26) File: C:/intelFPGA_lite/18.0/ECE_272_Final_Project/counter.sv Line: 8
 Info (12128): Elaborating entity "comparator" for hierarchy "comparator:inst1111"
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "pin_name1" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/intelFPGA_lite/18.0/ECE_272_Final_Project/output_files/Top_Level.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "Clock_50MHz"
-Info (21057): Implemented 39 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 28 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 4780 megabytes
-    Info: Processing ended: Thu Nov 10 17:19:43 2022
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:31
+Info (21057): Implemented 43 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 2 output pins
+    Info (21061): Implemented 37 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 4761 megabytes
+    Info: Processing ended: Sun Nov 20 20:42:02 2022
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:46
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/intelFPGA_lite/18.0/ECE_272_Final_Project/output_files/Top_Level.map.smsg.
 
 

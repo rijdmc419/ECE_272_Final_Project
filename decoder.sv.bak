@@ -1,0 +1,10 @@
+module decoder1 #(parameter N = 8)(input logic [N-1:0] in, 
+											  output logic q)
+											  
+			cases(in)
+			21: y=1;
+			28: y=1;
+			26: y=1;
+			default: y=0;
+			
+endmodule
