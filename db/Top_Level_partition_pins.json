@@ -4,11 +4,15 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "pin_name1",
+					"name" : "out",
 					"strict" : false
 				},
 				{
-					"name" : "pin_name2",
+					"name" : "LED",
+					"strict" : false
+				},
+				{
+					"name" : "Data",
 					"strict" : false
 				},
 				{
@@ -16,11 +20,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "rest",
+					"name" : "50MHz_CLK",
 					"strict" : false
 				},
 				{
-					"name" : "Data",
+					"name" : "rest",
 					"strict" : false
 				}
 			]
