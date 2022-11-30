@@ -31,6 +31,13 @@ refer to the applicable agreement for further details.
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
+		(pt 0 48)
+		(input)
+		(text "c[10..0]" (rect 0 0 28 12)(font "Arial" ))
+		(text "c[10..0]" (rect 21 43 49 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
 		(pt 152 32)
 		(output)
 		(text "eq" (rect 0 0 9 12)(font "Arial" ))
@@ -74,11 +81,6 @@ refer to the applicable agreement for further details.
 	)
 	(parameter
 		"N"
-		"8"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"b"
 		"8"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)

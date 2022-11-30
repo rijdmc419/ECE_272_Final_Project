@@ -74,7 +74,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 856 376 1024 392)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "rest" (rect 5 0 24 12)(font "Arial" ))
+	(text "rest" (rect 5 0 23 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -225,7 +225,7 @@ refer to the applicable agreement for further details.
 		(pt 136 32)
 		(output)
 		(text "w" (rect 0 0 7 12)(font "Arial" ))
-		(text "w" (rect 110 27 115 39)(font "Arial" ))
+		(text "w" (rect 110 27 117 39)(font "Arial" ))
 		(line (pt 136 32)(pt 120 32))
 	)
 	(parameter
@@ -239,7 +239,7 @@ refer to the applicable agreement for further details.
 	(annotation_block (parameter)(rect 1216 80 1385 118))
 )
 (symbol
-	(rect 1192 520 1344 600)
+	(rect 1256 400 1408 480)
 	(text "counter" (rect 5 0 41 12)(font "Arial" ))
 	(text "inst3" (rect 8 64 30 81)(font "Intel Clear" ))
 	(port
@@ -265,18 +265,18 @@ refer to the applicable agreement for further details.
 	)
 	(parameter
 		"N"
-		"8"
+		"10"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
 		(rectangle (rect 16 16 136 64))
 	)
-	(annotation_block (parameter)(rect 1184 472 1360 512))
+	(annotation_block (parameter)(rect 1248 352 1417 390))
 )
 (symbol
 	(rect 1440 504 1592 648)
 	(text "comparator" (rect 5 0 60 12)(font "Arial" ))
-	(text "inst1" (rect 8 128 31 140)(font "Arial" ))
+	(text "inst7" (rect 8 128 30 145)(font "Intel Clear" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -285,45 +285,52 @@ refer to the applicable agreement for further details.
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
+		(pt 0 48)
+		(input)
+		(text "c[10..0]" (rect 0 0 37 12)(font "Arial" ))
+		(text "c[10..0]" (rect 21 43 58 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
 		(pt 152 32)
 		(output)
 		(text "eq" (rect 0 0 11 12)(font "Arial" ))
-		(text "eq" (rect 122 27 131 39)(font "Arial" ))
+		(text "eq" (rect 122 27 133 39)(font "Arial" ))
 		(line (pt 152 32)(pt 136 32))
 	)
 	(port
 		(pt 152 48)
 		(output)
 		(text "neq" (rect 0 0 17 12)(font "Arial" ))
-		(text "neq" (rect 117 43 131 55)(font "Arial" ))
+		(text "neq" (rect 117 43 134 55)(font "Arial" ))
 		(line (pt 152 48)(pt 136 48))
 	)
 	(port
 		(pt 152 64)
 		(output)
 		(text "lt" (rect 0 0 5 12)(font "Arial" ))
-		(text "lt" (rect 127 59 131 71)(font "Arial" ))
+		(text "lt" (rect 127 59 132 71)(font "Arial" ))
 		(line (pt 152 64)(pt 136 64))
 	)
 	(port
 		(pt 152 80)
 		(output)
 		(text "lte" (rect 0 0 11 12)(font "Arial" ))
-		(text "lte" (rect 122 75 131 87)(font "Arial" ))
+		(text "lte" (rect 122 75 133 87)(font "Arial" ))
 		(line (pt 152 80)(pt 136 80))
 	)
 	(port
 		(pt 152 96)
 		(output)
 		(text "gt" (rect 0 0 9 12)(font "Arial" ))
-		(text "gt" (rect 124 91 131 103)(font "Arial" ))
+		(text "gt" (rect 124 91 133 103)(font "Arial" ))
 		(line (pt 152 96)(pt 136 96))
 	)
 	(port
 		(pt 152 112)
 		(output)
 		(text "gte" (rect 0 0 15 12)(font "Arial" ))
-		(text "gte" (rect 119 107 131 119)(font "Arial" ))
+		(text "gte" (rect 119 107 134 119)(font "Arial" ))
 		(line (pt 152 112)(pt 136 112))
 	)
 	(parameter
@@ -331,15 +338,10 @@ refer to the applicable agreement for further details.
 		"10"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"b"
-		"8"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
 		(rectangle (rect 16 16 136 128))
 	)
-	(annotation_block (parameter)(rect 1440 424 1609 481))
+	(annotation_block (parameter)(rect 1440 464 1609 502))
 )
 (connector
 	(pt 1224 168)
@@ -354,14 +356,6 @@ refer to the applicable agreement for further details.
 	(pt 1080 320)
 )
 (connector
-	(pt 1360 168)
-	(pt 1416 168)
-)
-(connector
-	(pt 1416 216)
-	(pt 1456 216)
-)
-(connector
 	(pt 512 224)
 	(pt 512 272)
 )
@@ -372,21 +366,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 512 272)
 	(pt 520 272)
-)
-(connector
-	(pt 1224 200)
-	(pt 1208 200)
-	(bus)
-)
-(connector
-	(pt 1208 280)
-	(pt 1136 280)
-	(bus)
-)
-(connector
-	(pt 1208 200)
-	(pt 1208 280)
-	(bus)
 )
 (connector
 	(pt 1224 184)
@@ -401,23 +380,6 @@ refer to the applicable agreement for further details.
 	(pt 1024 384)
 )
 (connector
-	(pt 1416 312)
-	(pt 1456 312)
-)
-(connector
-	(pt 1416 168)
-	(pt 1416 216)
-)
-(connector
-	(pt 1416 216)
-	(pt 1416 312)
-)
-(connector
-	(pt 1432 536)
-	(pt 1440 536)
-	(bus)
-)
-(connector
 	(pt 664 208)
 	(pt 840 208)
 	(bus)
@@ -428,18 +390,87 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
+	(pt 1440 536)
 	(pt 1432 536)
-	(pt 1432 552)
 	(bus)
 )
 (connector
-	(pt 1432 552)
-	(pt 1344 552)
+	(pt 1432 536)
+	(pt 1432 432)
 	(bus)
 )
 (connector
+	(pt 1432 432)
+	(pt 1408 432)
+	(bus)
+)
+(connector
+	(text "50MHz_CLK" (rect 1202 416 1261 433)(font "Intel Clear" ))
+	(pt 1256 432)
+	(pt 1192 432)
+)
+(connector
+	(text "y[10..0]" (rect 1018 192 1053 209)(font "Intel Clear" ))
 	(pt 1008 208)
 	(pt 1136 208)
 	(bus)
 )
-(junction (pt 1416 216))
+(connector
+	(text "y[10..0]" (rect 1394 536 1429 553)(font "Intel Clear" ))
+	(pt 1440 552)
+	(pt 1384 552)
+	(bus)
+)
+(connector
+	(pt 1704 536)
+	(pt 1704 528)
+)
+(connector
+	(pt 1640 680)
+	(pt 1232 680)
+)
+(connector
+	(pt 1232 680)
+	(pt 1232 448)
+)
+(connector
+	(pt 1232 448)
+	(pt 1256 448)
+)
+(connector
+	(pt 1136 280)
+	(pt 1144 280)
+	(bus)
+)
+(connector
+	(pt 1360 168)
+	(pt 1416 168)
+)
+(connector
+	(text "output_Hz" (rect 1424 296 1472 313)(font "Intel Clear" ))
+	(pt 1424 312)
+	(pt 1456 312)
+)
+(connector
+	(text "output_Hz" (rect 1416 200 1464 217)(font "Intel Clear" ))
+	(pt 1416 216)
+	(pt 1456 216)
+)
+(connector
+	(text "output_Hz" (rect 1650 520 1698 537)(font "Intel Clear" ))
+	(pt 1640 536)
+	(pt 1704 536)
+)
+(connector
+	(pt 1592 616)
+	(pt 1640 616)
+)
+(connector
+	(pt 1640 536)
+	(pt 1640 616)
+)
+(connector
+	(pt 1640 616)
+	(pt 1640 680)
+)
+(junction (pt 1640 616))
