@@ -33,8 +33,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 48)
 		(input)
-		(text "c[10..0]" (rect 0 0 28 12)(font "Arial" ))
-		(text "c[10..0]" (rect 21 43 49 55)(font "Arial" ))
+		(text "c[M-1..0]" (rect 0 0 34 12)(font "Arial" ))
+		(text "c[M-1..0]" (rect 21 43 55 55)(font "Arial" ))
 		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
@@ -82,6 +82,16 @@ refer to the applicable agreement for further details.
 	(parameter
 		"N"
 		"8"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"M"
+		"17"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"F"
+		"2"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
