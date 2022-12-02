@@ -12,7 +12,7 @@ module SIPO2 #(parameter N = 10) (input logic in, clk, res,
 					begin
 						count <= 0;
 						trigger <= (previous == 8'b11110000);
-						previous <= inter[8:1];
+						previous <= res ? 8'b0:inter[8:1];
 					end
 					else
 					begin

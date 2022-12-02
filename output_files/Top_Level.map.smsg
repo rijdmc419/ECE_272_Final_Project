@@ -1,2 +1,2 @@
-Warning (10268): Verilog HDL information at SIPO.sv(8): always construct contains both blocking and non-blocking assignments File: C:/Users/ethan/OneDrive/Documents/ECE 271 final project/ECE_272_Final_Project/SIPO.sv Line: 8
-Warning (10268): Verilog HDL information at SIPO2.sv(9): always construct contains both blocking and non-blocking assignments File: C:/Users/ethan/OneDrive/Documents/ECE 271 final project/ECE_272_Final_Project/SIPO2.sv Line: 9
+Warning (10268): Verilog HDL information at SIPO.sv(8): always construct contains both blocking and non-blocking assignments File: C:/intelFPGA_lite/18.0/ECE_272_Final_Project/SIPO.sv Line: 8
+Warning (10268): Verilog HDL information at SIPO2.sv(9): always construct contains both blocking and non-blocking assignments File: C:/intelFPGA_lite/18.0/ECE_272_Final_Project/SIPO2.sv Line: 9

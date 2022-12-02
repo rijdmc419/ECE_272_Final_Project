@@ -1,0 +1,5 @@
+vsim -gui work.Top_Level2
+add wave *
+
+force CLK 0 0, 1 1 -r 2
+run 100

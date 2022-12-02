@@ -1,6 +1,6 @@
 Timing Analyzer report for Top_Level
-Thu Dec 01 15:55:07 2022
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Thu Dec 01 18:17:41 2022
+Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
 ---------------------
@@ -74,7 +74,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Timing Analyzer Summary                                                     ;
 +-----------------------+-----------------------------------------------------+
-; Quartus Prime Version ; Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Quartus Prime Version ; Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Timing Analyzer       ; Legacy Timing Analyzer                              ;
 ; Revision Name         ; Top_Level                                           ;
 ; Device Family         ; MAX 10                                              ;
@@ -91,28 +91,27 @@ refer to the applicable agreement for further details.
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
 ; Number detected on machine ; 8           ;
-; Maximum allowed            ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.20        ;
-; Maximum used               ; 8           ;
+; Average used               ; 1.07        ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.9%      ;
-;     Processor 3            ;   2.9%      ;
-;     Processor 4            ;   2.9%      ;
-;     Processors 5-8         ;   2.8%      ;
+;     Processor 2            ;   2.3%      ;
+;     Processor 3            ;   2.3%      ;
+;     Processor 4            ;   2.3%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Clocks                                                                                                                                                                                ;
-+------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------+
-; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets       ;
-+------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------+
-; 50MHz_CLK  ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { 50MHz_CLK } ;
-; Clock      ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Clock }     ;
-+------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                            ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets   ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+; CLK        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLK }   ;
+; Clock      ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Clock } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
 
 
 +-----------------------------------------------------------------------------------------------------------+
@@ -120,58 +119,58 @@ refer to the applicable agreement for further details.
 +------------+-----------------+------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
 +------------+-----------------+------------+---------------------------------------------------------------+
-; 376.08 MHz ; 250.0 MHz       ; 50MHz_CLK  ; limit due to minimum period restriction (max I/O toggle rate) ;
-; 453.72 MHz ; 250.0 MHz       ; Clock      ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 372.44 MHz ; 250.0 MHz       ; CLK        ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 405.35 MHz ; 250.0 MHz       ; Clock      ; limit due to minimum period restriction (max I/O toggle rate) ;
 +------------+-----------------+------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
 +-------------------------------------+
 ; Slow 1200mV 85C Model Setup Summary ;
-+-----------+--------+----------------+
-; Clock     ; Slack  ; End Point TNS  ;
-+-----------+--------+----------------+
-; 50MHz_CLK ; -1.659 ; -39.168        ;
-; Clock     ; -1.204 ; -18.829        ;
-+-----------+--------+----------------+
++-------+--------+--------------------+
+; Clock ; Slack  ; End Point TNS      ;
++-------+--------+--------------------+
+; CLK   ; -1.685 ; -40.391            ;
+; Clock ; -1.467 ; -23.221            ;
++-------+--------+--------------------+
 
 
 +------------------------------------+
 ; Slow 1200mV 85C Model Hold Summary ;
-+-----------+-------+----------------+
-; Clock     ; Slack ; End Point TNS  ;
-+-----------+-------+----------------+
-; 50MHz_CLK ; 0.356 ; 0.000          ;
-; Clock     ; 0.378 ; 0.000          ;
-+-----------+-------+----------------+
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; CLK   ; 0.355 ; 0.000              ;
+; Clock ; 0.378 ; 0.000              ;
++-------+-------+--------------------+
 
 
 +----------------------------------------+
 ; Slow 1200mV 85C Model Recovery Summary ;
-+-----------+--------+-------------------+
-; Clock     ; Slack  ; End Point TNS     ;
-+-----------+--------+-------------------+
-; 50MHz_CLK ; -7.948 ; -249.131          ;
-+-----------+--------+-------------------+
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; CLK   ; -6.777 ; -224.206              ;
++-------+--------+-----------------------+
 
 
 +---------------------------------------+
 ; Slow 1200mV 85C Model Removal Summary ;
-+-----------+-------+-------------------+
-; Clock     ; Slack ; End Point TNS     ;
-+-----------+-------+-------------------+
-; 50MHz_CLK ; 1.841 ; 0.000             ;
-+-----------+-------+-------------------+
++-------+-------+-----------------------+
+; Clock ; Slack ; End Point TNS         ;
++-------+-------+-----------------------+
+; CLK   ; 1.622 ; 0.000                 ;
++-------+-------+-----------------------+
 
 
 +---------------------------------------------------+
 ; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
-+-----------+--------+------------------------------+
-; Clock     ; Slack  ; End Point TNS                ;
-+-----------+--------+------------------------------+
-; 50MHz_CLK ; -3.000 ; -50.702                      ;
-; Clock     ; -3.000 ; -32.463                      ;
-+-----------+--------+------------------------------+
++-------+--------+----------------------------------+
+; Clock ; Slack  ; End Point TNS                    ;
++-------+--------+----------------------------------+
+; CLK   ; -3.000 ; -50.702                          ;
+; Clock ; -3.000 ; -32.463                          ;
++-------+--------+----------------------------------+
 
 
 -----------------------------------------------
@@ -185,58 +184,58 @@ No synchronizer chains to report.
 +------------+-----------------+------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
 +------------+-----------------+------------+---------------------------------------------------------------+
-; 418.41 MHz ; 250.0 MHz       ; 50MHz_CLK  ; limit due to minimum period restriction (max I/O toggle rate) ;
-; 492.61 MHz ; 250.0 MHz       ; Clock      ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 414.77 MHz ; 250.0 MHz       ; CLK        ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 444.44 MHz ; 250.0 MHz       ; Clock      ; limit due to minimum period restriction (max I/O toggle rate) ;
 +------------+-----------------+------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
 +------------------------------------+
 ; Slow 1200mV 0C Model Setup Summary ;
-+-----------+--------+---------------+
-; Clock     ; Slack  ; End Point TNS ;
-+-----------+--------+---------------+
-; 50MHz_CLK ; -1.390 ; -32.073       ;
-; Clock     ; -1.030 ; -15.680       ;
-+-----------+--------+---------------+
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; CLK   ; -1.411 ; -32.992           ;
+; Clock ; -1.250 ; -19.272           ;
++-------+--------+-------------------+
 
 
 +-----------------------------------+
 ; Slow 1200mV 0C Model Hold Summary ;
-+-----------+-------+---------------+
-; Clock     ; Slack ; End Point TNS ;
-+-----------+-------+---------------+
-; 50MHz_CLK ; 0.322 ; 0.000         ;
-; Clock     ; 0.338 ; 0.000         ;
-+-----------+-------+---------------+
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; CLK   ; 0.321 ; 0.000             ;
+; Clock ; 0.338 ; 0.000             ;
++-------+-------+-------------------+
 
 
 +---------------------------------------+
 ; Slow 1200mV 0C Model Recovery Summary ;
-+-----------+--------+------------------+
-; Clock     ; Slack  ; End Point TNS    ;
-+-----------+--------+------------------+
-; 50MHz_CLK ; -7.244 ; -227.022         ;
-+-----------+--------+------------------+
++-------+--------+----------------------+
+; Clock ; Slack  ; End Point TNS        ;
++-------+--------+----------------------+
+; CLK   ; -6.218 ; -205.410             ;
++-------+--------+----------------------+
 
 
 +--------------------------------------+
 ; Slow 1200mV 0C Model Removal Summary ;
-+-----------+-------+------------------+
-; Clock     ; Slack ; End Point TNS    ;
-+-----------+-------+------------------+
-; 50MHz_CLK ; 1.722 ; 0.000            ;
-+-----------+-------+------------------+
++-------+-------+----------------------+
+; Clock ; Slack ; End Point TNS        ;
++-------+-------+----------------------+
+; CLK   ; 1.496 ; 0.000                ;
++-------+-------+----------------------+
 
 
 +--------------------------------------------------+
 ; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
-+-----------+--------+-----------------------------+
-; Clock     ; Slack  ; End Point TNS               ;
-+-----------+--------+-----------------------------+
-; 50MHz_CLK ; -3.000 ; -50.702                     ;
-; Clock     ; -3.000 ; -32.463                     ;
-+-----------+--------+-----------------------------+
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; CLK   ; -3.000 ; -50.702                         ;
+; Clock ; -3.000 ; -32.463                         ;
++-------+--------+---------------------------------+
 
 
 ----------------------------------------------
@@ -247,50 +246,50 @@ No synchronizer chains to report.
 
 +------------------------------------+
 ; Fast 1200mV 0C Model Setup Summary ;
-+-----------+--------+---------------+
-; Clock     ; Slack  ; End Point TNS ;
-+-----------+--------+---------------+
-; 50MHz_CLK ; -0.069 ; -0.179        ;
-; Clock     ; 0.030  ; 0.000         ;
-+-----------+--------+---------------+
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; CLK   ; -0.085 ; -0.205            ;
+; Clock ; -0.084 ; -0.242            ;
++-------+--------+-------------------+
 
 
 +-----------------------------------+
 ; Fast 1200mV 0C Model Hold Summary ;
-+-----------+-------+---------------+
-; Clock     ; Slack ; End Point TNS ;
-+-----------+-------+---------------+
-; 50MHz_CLK ; 0.152 ; 0.000         ;
-; Clock     ; 0.161 ; 0.000         ;
-+-----------+-------+---------------+
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; CLK   ; 0.151 ; 0.000             ;
+; Clock ; 0.165 ; 0.000             ;
++-------+-------+-------------------+
 
 
 +---------------------------------------+
 ; Fast 1200mV 0C Model Recovery Summary ;
-+-----------+--------+------------------+
-; Clock     ; Slack  ; End Point TNS    ;
-+-----------+--------+------------------+
-; 50MHz_CLK ; -3.327 ; -103.941         ;
-+-----------+--------+------------------+
++-------+--------+----------------------+
+; Clock ; Slack  ; End Point TNS        ;
++-------+--------+----------------------+
+; CLK   ; -2.674 ; -88.875              ;
++-------+--------+----------------------+
 
 
 +--------------------------------------+
 ; Fast 1200mV 0C Model Removal Summary ;
-+-----------+-------+------------------+
-; Clock     ; Slack ; End Point TNS    ;
-+-----------+-------+------------------+
-; 50MHz_CLK ; 0.763 ; 0.000            ;
-+-----------+-------+------------------+
++-------+-------+----------------------+
+; Clock ; Slack ; End Point TNS        ;
++-------+-------+----------------------+
+; CLK   ; 0.673 ; 0.000                ;
++-------+-------+----------------------+
 
 
 +--------------------------------------------------+
 ; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
-+-----------+--------+-----------------------------+
-; Clock     ; Slack  ; End Point TNS               ;
-+-----------+--------+-----------------------------+
-; 50MHz_CLK ; -3.000 ; -43.094                     ;
-; Clock     ; -3.000 ; -30.275                     ;
-+-----------+--------+-----------------------------+
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; CLK   ; -3.000 ; -42.728                         ;
+; Clock ; -3.000 ; -29.555                         ;
++-------+--------+---------------------------------+
 
 
 ----------------------------------------------
@@ -304,12 +303,12 @@ No synchronizer chains to report.
 +------------------+---------+-------+----------+---------+---------------------+
 ; Clock            ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------+---------+-------+----------+---------+---------------------+
-; Worst-case Slack ; -1.659  ; 0.152 ; -7.948   ; 0.763   ; -3.000              ;
-;  50MHz_CLK       ; -1.659  ; 0.152 ; -7.948   ; 0.763   ; -3.000              ;
-;  Clock           ; -1.204  ; 0.161 ; N/A      ; N/A     ; -3.000              ;
-; Design-wide TNS  ; -57.997 ; 0.0   ; -249.131 ; 0.0     ; -83.165             ;
-;  50MHz_CLK       ; -39.168 ; 0.000 ; -249.131 ; 0.000   ; -50.702             ;
-;  Clock           ; -18.829 ; 0.000 ; N/A      ; N/A     ; -32.463             ;
+; Worst-case Slack ; -1.685  ; 0.151 ; -6.777   ; 0.673   ; -3.000              ;
+;  CLK             ; -1.685  ; 0.151 ; -6.777   ; 0.673   ; -3.000              ;
+;  Clock           ; -1.467  ; 0.165 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -63.612 ; 0.0   ; -224.206 ; 0.0     ; -83.165             ;
+;  CLK             ; -40.391 ; 0.000 ; -224.206 ; 0.000   ; -50.702             ;
+;  Clock           ; -23.221 ; 0.000 ; N/A      ; N/A     ; -32.463             ;
 +------------------+---------+-------+----------+---------+---------------------+
 
 
@@ -329,10 +328,9 @@ No synchronizer chains to report.
 +---------------------+-----------------------+-----------------+-----------------+
 ; Pin                 ; I/O Standard          ; 10-90 Rise Time ; 90-10 Fall Time ;
 +---------------------+-----------------------+-----------------+-----------------+
-; rest                ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
-; Data                ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; CLK                 ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; Clock               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; 50MHz_CLK           ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; Data                ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; ~ALTERA_TMS~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TCK~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TDI~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
@@ -376,47 +374,47 @@ No synchronizer chains to report.
 +--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
 
-+--------------------------------------------------------------------+
-; Setup Transfers                                                    ;
-+------------+-----------+----------+----------+----------+----------+
-; From Clock ; To Clock  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+------------+-----------+----------+----------+----------+----------+
-; 50MHz_CLK  ; 50MHz_CLK ; 306      ; 0        ; 0        ; 0        ;
-; Clock      ; Clock     ; 0        ; 0        ; 0        ; 107      ;
-+------------+-----------+----------+----------+----------+----------+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLK        ; CLK      ; 306      ; 0        ; 0        ; 0        ;
+; Clock      ; Clock    ; 0        ; 0        ; 0        ; 107      ;
++------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
-+--------------------------------------------------------------------+
-; Hold Transfers                                                     ;
-+------------+-----------+----------+----------+----------+----------+
-; From Clock ; To Clock  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+------------+-----------+----------+----------+----------+----------+
-; 50MHz_CLK  ; 50MHz_CLK ; 306      ; 0        ; 0        ; 0        ;
-; Clock      ; Clock     ; 0        ; 0        ; 0        ; 107      ;
-+------------+-----------+----------+----------+----------+----------+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLK        ; CLK      ; 306      ; 0        ; 0        ; 0        ;
+; Clock      ; Clock    ; 0        ; 0        ; 0        ; 107      ;
++------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
-+--------------------------------------------------------------------+
-; Recovery Transfers                                                 ;
-+------------+-----------+----------+----------+----------+----------+
-; From Clock ; To Clock  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+------------+-----------+----------+----------+----------+----------+
-; 50MHz_CLK  ; 50MHz_CLK ; 1020     ; 0        ; 0        ; 0        ;
-; Clock      ; 50MHz_CLK ; 0        ; 11560    ; 0        ; 0        ;
-+------------+-----------+----------+----------+----------+----------+
++-------------------------------------------------------------------+
+; Recovery Transfers                                                ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLK        ; CLK      ; 561      ; 0        ; 0        ; 0        ;
+; Clock      ; CLK      ; 0        ; 15470    ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
-+--------------------------------------------------------------------+
-; Removal Transfers                                                  ;
-+------------+-----------+----------+----------+----------+----------+
-; From Clock ; To Clock  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+------------+-----------+----------+----------+----------+----------+
-; 50MHz_CLK  ; 50MHz_CLK ; 1020     ; 0        ; 0        ; 0        ;
-; Clock      ; 50MHz_CLK ; 0        ; 11560    ; 0        ; 0        ;
-+------------+-----------+----------+----------+----------+----------+
++-------------------------------------------------------------------+
+; Removal Transfers                                                 ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLK        ; CLK      ; 561      ; 0        ; 0        ; 0        ;
+; Clock      ; CLK      ; 0        ; 15470    ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
@@ -446,14 +444,14 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 
 
-+--------------------------------------------+
-; Clock Status Summary                       ;
-+-----------+-----------+------+-------------+
-; Target    ; Clock     ; Type ; Status      ;
-+-----------+-----------+------+-------------+
-; 50MHz_CLK ; 50MHz_CLK ; Base ; Constrained ;
-; Clock     ; Clock     ; Base ; Constrained ;
-+-----------+-----------+------+-------------+
++-------------------------------------+
+; Clock Status Summary                ;
++--------+-------+------+-------------+
+; Target ; Clock ; Type ; Status      ;
++--------+-------+------+-------------+
+; CLK    ; CLK   ; Base ; Constrained ;
+; Clock  ; Clock ; Base ; Constrained ;
++--------+-------+------+-------------+
 
 
 +---------------------------------------------------------------------------------------------------+
@@ -497,18 +495,18 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +--------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
-    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Dec 01 15:54:59 2022
+    Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+    Info: Processing started: Thu Dec 01 18:17:33 2022
 Info: Command: quartus_sta Top_Level -c Top_Level
-Info: qsta_default_script.tcl version: #1
+Info: qsta_default_script.tcl version: #2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'Top_Level.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
-    Info (332105): create_clock -period 1.000 -name 50MHz_CLK 50MHz_CLK
+    Info (332105): create_clock -period 1.000 -name CLK CLK
     Info (332105): create_clock -period 1.000 -name Clock Clock
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
@@ -516,88 +514,88 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -1.659
+Info (332146): Worst-case setup slack is -1.685
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.659             -39.168 50MHz_CLK 
-    Info (332119):    -1.204             -18.829 Clock 
-Info (332146): Worst-case hold slack is 0.356
+    Info (332119):    -1.685             -40.391 CLK 
+    Info (332119):    -1.467             -23.221 Clock 
+Info (332146): Worst-case hold slack is 0.355
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.356               0.000 50MHz_CLK 
+    Info (332119):     0.355               0.000 CLK 
     Info (332119):     0.378               0.000 Clock 
-Info (332146): Worst-case recovery slack is -7.948
+Info (332146): Worst-case recovery slack is -6.777
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -7.948            -249.131 50MHz_CLK 
-Info (332146): Worst-case removal slack is 1.841
+    Info (332119):    -6.777            -224.206 CLK 
+Info (332146): Worst-case removal slack is 1.622
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.841               0.000 50MHz_CLK 
+    Info (332119):     1.622               0.000 CLK 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -50.702 50MHz_CLK 
+    Info (332119):    -3.000             -50.702 CLK 
     Info (332119):    -3.000             -32.463 Clock 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -1.390
+Info (332146): Worst-case setup slack is -1.411
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.390             -32.073 50MHz_CLK 
-    Info (332119):    -1.030             -15.680 Clock 
-Info (332146): Worst-case hold slack is 0.322
+    Info (332119):    -1.411             -32.992 CLK 
+    Info (332119):    -1.250             -19.272 Clock 
+Info (332146): Worst-case hold slack is 0.321
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.322               0.000 50MHz_CLK 
+    Info (332119):     0.321               0.000 CLK 
     Info (332119):     0.338               0.000 Clock 
-Info (332146): Worst-case recovery slack is -7.244
+Info (332146): Worst-case recovery slack is -6.218
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -7.244            -227.022 50MHz_CLK 
-Info (332146): Worst-case removal slack is 1.722
+    Info (332119):    -6.218            -205.410 CLK 
+Info (332146): Worst-case removal slack is 1.496
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.722               0.000 50MHz_CLK 
+    Info (332119):     1.496               0.000 CLK 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -50.702 50MHz_CLK 
+    Info (332119):    -3.000             -50.702 CLK 
     Info (332119):    -3.000             -32.463 Clock 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -0.069
+Info (332146): Worst-case setup slack is -0.085
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.069              -0.179 50MHz_CLK 
-    Info (332119):     0.030               0.000 Clock 
-Info (332146): Worst-case hold slack is 0.152
+    Info (332119):    -0.085              -0.205 CLK 
+    Info (332119):    -0.084              -0.242 Clock 
+Info (332146): Worst-case hold slack is 0.151
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.152               0.000 50MHz_CLK 
-    Info (332119):     0.161               0.000 Clock 
-Info (332146): Worst-case recovery slack is -3.327
+    Info (332119):     0.151               0.000 CLK 
+    Info (332119):     0.165               0.000 Clock 
+Info (332146): Worst-case recovery slack is -2.674
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.327            -103.941 50MHz_CLK 
-Info (332146): Worst-case removal slack is 0.763
+    Info (332119):    -2.674             -88.875 CLK 
+Info (332146): Worst-case removal slack is 0.673
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.763               0.000 50MHz_CLK 
+    Info (332119):     0.673               0.000 CLK 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -43.094 50MHz_CLK 
-    Info (332119):    -3.000             -30.275 Clock 
+    Info (332119):    -3.000             -42.728 CLK 
+    Info (332119):    -3.000             -29.555 Clock 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4860 megabytes
-    Info: Processing ended: Thu Dec 01 15:55:07 2022
+    Info: Peak virtual memory: 4813 megabytes
+    Info: Processing ended: Thu Dec 01 18:17:41 2022
     Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:08
 
